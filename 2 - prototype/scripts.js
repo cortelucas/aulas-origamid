@@ -49,4 +49,6 @@ li.offsetLeft; //Number
 li.click(); //undefined
 
 // Qual o construtor do dado abaixo:
-li.hidden.constructor.name; //Boolean
+const teste = li.hidden.constructor.name;
+teste.constructor.name;
+li.hidden.constructor.name; //String
