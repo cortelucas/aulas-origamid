@@ -7,7 +7,6 @@
 // const frase = 'A melhor comida';
 // console.log(frase [4]);
 
-// ----- Aula 02 -----
 const frase = 'A melhor linguagem é ';
 const linguagem = 'JavaScript';
 
@@ -28,8 +27,28 @@ listaPrecos.forEach((preco) => {
   console.log(preco.padStart(10, '.'));
 });
 
-// ----- Aula 03 -----
+// ----- Aula 02 -----
 let listaItens = 'Camisas Bonés Calças Bermudas Vestidos Saias';
 listaItens = listaItens.replace(/[ ]+/g, ', '); //Regex
 
 const arrayLista = listaItens.split(', ');
+
+const listaItens = 'Camisas Bonés Calças Bermudas Vestidos Saias';
+const arrayItens = listaItens.split(' ');
+
+const htmlText = '<div>O melhor item</div><div>A melhor lista</div>';
+const htmlArray = htmlText.split('div');
+const htmlNovo = htmlArray.join('section');
+
+const sexo1 = 'Feminino';
+const sexo2 = 'feminino';
+const sexo3 = 'FEMININO';
+
+(sexo1.toLowerCase() === 'feminino'); // true
+(sexo2.toLowerCase() === 'feminino'); // true
+(sexo3.toLowerCase() === 'feminino'); // true
+
+const valor = '  R$ 23.00   ' 
+valor.trim(); // 'R$ 23.00'
+valor.trimStart(); // 'R$ 23.00   '
+valor.trimEnd(); // '  R$ 23.00'
