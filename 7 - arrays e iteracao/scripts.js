@@ -47,5 +47,17 @@ const compras = [
   {
     item: 'Quejo',
     preco: 'R$ 10,60'
+  },
+  {
+    item: 'Arroz',
+    preco: 'R$ 12,30'
   }
 ]
+
+const valorTotal = compras.reduce((cont, item) => {
+  const precoLimpo = +item.preco.replace('R$ ', '').replace(',', '.');
+  
+  return cont + precoLimpo;
+}, 0);
+
+console.log(valorTotal);
