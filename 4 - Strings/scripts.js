@@ -34,6 +34,9 @@ console.log(`O total dos valores são R$ ${taxaTotal}`);
 
 // Retorne uma array com a lista abaixo
 const transportes = 'Carro;Avião;Trem;Ônibus;Bicicleta';
+const arrayTransporter = transportes.split(';');
+console.log(arrayTransporter);
+
 
 // Substitua todos os span's por a's
 const html = `<ul>
