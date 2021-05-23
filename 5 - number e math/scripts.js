@@ -17,8 +17,12 @@ preco.toLocaleString('en-US', {style: 'currency', currency: 'USD'});
 preco.toLocaleString('pt-BR', {style: 'currency', currency: 'BRL'});
 
 // ----- Math -----
-console.log(Math.PI);
 console.log(`
+  Math.PI - retorna o PI
+  Math.PI = ${Math.PI}
+
+  -----------------------------------------------
+  
   Math.abs() - Retorna valor absoluto;
   Math.abs(-5.5) = ${Math.abs(-5.5)}
 
