@@ -1,123 +1,38 @@
-// ----- Array.forEach -----
-const carros = ['Ford', 'Fiat', 'Honda'];
+// Selecione cada curso e retorne uma array
+// com objetos contendo o título, descricao,
+// aulas e horas de cada curso
 
-carros.forEach((item, index, array) => {
-  console.log(item, index, array);
-});
 
-const li = document.querySelectorAll('li');
-li.forEach(i => i.classList.add('ativa'));
+// Retorne uma lista com os
+// números maiores que 100
+const numeros = [3, 44, 333, 23, 122, 322, 33];
 
-// ----- Array.map ------
-const novaArray = carros.map((item, index, array) => {
-  return item.toLocaleUpperCase();
-});
-console.log(novaArray);
 
-const numeros = [2, 4, 5, 6, 78];
-const numerosx2 = numeros.map(n => n * 2);
-console.table(numeros);
-console.table(numerosx2);
+// Verifique se Baixo faz parte
+// da lista de instrumentos e retorne true
+const instrumentos = ['Guitarra', 'Baixo', 'Bateria', 'Teclado']
 
-const aulas = [
+
+// Retorne o valor total das compras
+const compras = [
   {
-    nome: 'HTML 1',
-    min: 15
+    item: 'Banana',
+    preco: 'R$ 4,99'
   },
   {
-    nome: 'HTML 2',
-    min: 10
+    item: 'Ovo',
+    preco: 'R$ 2,99'
   },
   {
-    nome: 'CSS 1',
-    min: 20
+    item: 'Carne',
+    preco: 'R$ 25,49'
   },
   {
-    nome: 'JS 1',
-    min: 25
+    item: 'Refrigerante',
+    preco: 'R$ 5,35'
   },
+  {
+    item: 'Quejo',
+    preco: 'R$ 10,60'
+  }
 ]
-
-const tempoAulas = aulas.map(aula => aula.min);
-console.log(tempoAulas);
-
-const nomeAulas = aula => aula.nome;
-
-const arrayNomeAulas = aulas.map(nomeAulas);
-console.log(arrayNomeAulas);
-
-// ----- Reduce -----
-const reduceAulas = aulas.reduce((acumulador, item, index, array) => {
-  console.log(acumulador , item, index, array);
-  return acumulador + item.min;
-}, 0)
-
-const maiorNumero = numeros.reduce((acumulador, item) => {
-  return acumulador > item ? acumulador : item;
-  // if(acumulador > item)
-  //   return acumulador;
-  // else
-  //   return item;
-},0);
-console.log(maiorNumero);
-
-const listaAulas = aulas.reduce((acumulador, atual, index) => {
-  acumulador[index] = atual.nome;
-  return acumulador
-}, {});
-console.log(listaAulas);
-
-/* passo a passo do reduce
-const aulas = [10, 25, 30];
-
-// 1
-aulas.reduce((0, 10) => {
-  return 0 + 10;
-}, 0); // retorna 10
-
-// 2
-aulas.reduce((10, 25) => {
-  return 10 + 25;
-}, 0); // retorna 35
-
-// 3
-aulas.reduce((35, 30) => {
-  return 35 + 30;
-}, 0); // retorna 65
-
-*/
-
-// ------ Array.some() ------
-const frutas = ['Banana', 'Pêra', 'Uva'];
-
-const temUva = frutas.some((item) => {
-  return item === 'Uva';
-});
-console.log(temUva);
-
-// ------ Array.every() ------
-const every = frutas.every((item) => {
-  return item === 'Uva';
-});
-console.log(every);
-
-const maiorQue3 = numeros.every(n  => n < 3);
-console.log(maiorQue3);
-
-// ------ Array.find() e Array.findIndex ------
-const indexUva = frutas.findIndex((item) => {
-  return item === 'Uva';
-});
-console.log(indexUva);
-
-// ------ Array.filter() ------
-const frutas1 = ['Banana', undefined, null, '', 'Uva', 0, 'Maçã'];
-const arrayFrutas = frutas1.filter((item) => {
-  return item;
-});
-console.log(arrayFrutas);
-
-const maiores15 = aulas.filter((aula) => {
-  return aula.min >= 15;
-});
-console.log(maiores15);
