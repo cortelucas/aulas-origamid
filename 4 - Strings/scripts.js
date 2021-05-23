@@ -49,6 +49,7 @@ html = html.split('span').join('a');
 
 // Retorne o último caracter da frase
 const frase = 'Melhor do ano!';
+console.log(frase[frase.length - 1] && frase.slice(-1));
 
 // Retorne o total de taxas
 //const transacoes = ['Taxa do Banco', '   TAXA DO PÃO', '  taxa do mercado', 'depósito Bancário', 'TARIFA especial'];
