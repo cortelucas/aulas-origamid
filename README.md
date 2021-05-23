@@ -10,3 +10,4 @@ Estudos em JavaScript com professor Andre Rafael da Origamid.
 4. [Strings](https://github.com/cortelucas/aulas-origamid/tree/master/4%20-%20Strings)
 5. [Number e Math](https://github.com/cortelucas/aulas-origamid/tree/master/5%20-%20number%20e%20math)
 6. [Arrays](https://github.com/cortelucas/aulas-origamid/tree/master/6%20-%20arrays)
+7. [Arrays e Iterações](https://github.com/cortelucas/aulas-origamid/tree/master/7%20-%20arrays%20e%20iteracao)
