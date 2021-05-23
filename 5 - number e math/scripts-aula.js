@@ -1,54 +1,82 @@
-// ----- Aula 01 -----
-// const comida = 'Pizza';
-// const agua = new String('Água');
+// ----- Number -----
+const preco = 59.49
+const gasolina = 5.499;
 
-// console.log(agua.length);
+console.log(`
+  Number.isNaN - verifica se é number ou nao
+  Number.isNaN(NaN) = ${Number.isNaN(NaN)}
+  Number.isNaN(5 + 4) = ${Number.isNaN(5 + 4)}
 
-// const frase = 'A melhor comida';
-// console.log(frase [4]);
+  -----------------------------------------------
 
-const frase = 'A melhor linguagem é ';
-const linguagem = 'JavaScript';
+  Number.isInteger - verifica se é um number int
+  Number.isInteger(5) = ${Number.isInteger(5)}
+  Number.isInteger(5.4) = ${Number.isInteger(5.4)}
 
-console.log(frase.concat(linguagem, '!!'));
+  -----------------------------------------------
 
-const fruta = 'Banana';
-const listaFrutas = 'Melancia, Banana, Laranja';
+  Number.parseFloat() = transforma String em number float
+  Number.parseFloat('324.452') = ${Number.parseFloat('324.452')}
+  Number.parseInt('23.49') = ${Number.parseInt('23.49')}
 
-console.log(listaFrutas.includes(fruta));
-console.log(fruta.endsWith('na'));
-console.log(fruta.slice(0,3));
-console.log(fruta.slice(-3));
-console.log(fruta.indexOf('B'));
+  -----------------------------------------------
 
-const listaPrecos = ['R$ 99', 'R$ 199', 'R$ 12000'];
+  toFixed() - retorna valor arredondado com base nas casa decimais
+  preco.toFixed() = ${preco.toFixed()}
+  gasolina.toFixed(2) = ${gasolina.toFixed(2)}
 
-listaPrecos.forEach((preco) => {
-  console.log(preco.padStart(10, '.'));
-});
+  -----------------------------------------------
 
-// ----- Aula 02 -----
-let listaItens = 'Camisas Bonés Calças Bermudas Vestidos Saias';
-listaItens = listaItens.replace(/[ ]+/g, ', '); //Regex
+  toLocaleStrin() - formata numeros de acordo com a lingua passada
+  preco.toLocaleString('en-US', {style: 'currency', currency: 'USD'}) = ${preco.toLocaleString('en-US', {style: 'currency', currency: 'USD'})}
+  preco.toLocaleString('pt-BR', {style: 'currency', currency: 'BRL'}) = ${preco.toLocaleString('pt-BR', {style: 'currency', currency: 'BRL'})}
+`);
 
-const arrayLista = listaItens.split(', ');
+// ----- Math -----
+console.log(`
+  Math.PI - retorna o PI
+  Math.PI = ${Math.PI}
 
-const listaItens = 'Camisas Bonés Calças Bermudas Vestidos Saias';
-const arrayItens = listaItens.split(' ');
+  -----------------------------------------------
+  
+  Math.abs() - Retorna valor absoluto;
+  Math.abs(-5.5) = ${Math.abs(-5.5)}
 
-const htmlText = '<div>O melhor item</div><div>A melhor lista</div>';
-const htmlArray = htmlText.split('div');
-const htmlNovo = htmlArray.join('section');
+  ------------------------------------------------
 
-const sexo1 = 'Feminino';
-const sexo2 = 'feminino';
-const sexo3 = 'FEMININO';
+  Math.ceil() - Arredonda para inteiro para cima
+  Math.ceil(4.8334) =  ${Math.ceil(4.8334)}
+  Math.ceil(4.3) = ${Math.ceil(4.3)}
 
-(sexo1.toLowerCase() === 'feminino'); // true
-(sexo2.toLowerCase() === 'feminino'); // true
-(sexo3.toLowerCase() === 'feminino'); // true
+  ------------------------------------------------
 
-const valor = '  R$ 23.00   ' 
-valor.trim(); // 'R$ 23.00'
-valor.trimStart(); // 'R$ 23.00   '
-valor.trimEnd(); // '  R$ 23.00'
+  Math.floor - Aredonda para inteiro para baixo
+  Math.floor(4.8334) = ${Math.floor(4.8334)} 
+  Math.floor(4.3) = ${Math.floor(4.3)}
+
+  -------------------------------------------------
+
+  Math.round - Arredonda segundo regras matemáticas
+  Math.round(4.8334) = ${Math.round(4.8334)} 
+  Math.round(4.3) = ${Math.round(4.3)} 
+
+  -------------------------------------------------
+
+  Math.min e Math.max - retorna minimo e maximo
+  Math.max(5,3,10,42,2) = ${Math.max(5,3,10,42,2)}
+  Math.min(5,3,10,42,2) = ${Math.min(5,3,10,42,2)}
+
+  -------------------------------------------------
+
+  Math.random() - retorna numero aleatorio de 0 a 1
+  Math.random() = ${Math.random()}
+  Math.floor(Math.random() * 100) = ${Math.floor(Math.random() * 100)}
+  Math.floor(Math.random() * 500) = ${Math.floor(Math.random() * 500)}
+
+  --------------------------------------------------
+
+  Número random entre 72 e 32
+  Math.floor(Math.random() * (72 - 32 + 1)) + 32 = ${Math.floor(Math.random() * (72 - 32 + 1)) + 32} 
+  Math.floor(Math.random() * (98 - 40 + 1)) + 40 = ${Math.floor(Math.random() * (98 - 40 + 1)) + 40}
+
+`)
