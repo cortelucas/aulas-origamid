@@ -1,55 +1,62 @@
-const comidas = ['Pizza', 'Frango', 'Carne', 'Macarrão'];
-// Remova o primeiro valor de comidas e coloque em uma variável
-// Remova o último valor de comidas e coloque em uma variável
-// Adicione 'Arroz' ao final da array
-// Adicione 'Peixe' e 'Batata' ao início da array
+// ----- Array.forEach -----
+const carros = ['Ford', 'Fiat', 'Honda'];
 
-const primeiroValor = comidas.shift();
-const ultimoValor = comidas.pop();
-comidas.push('Arroz');
-comidas.unshift('Peixe', 'Batata')
+carros.forEach((item, index, array) => {
+  console.log(item, index, array);
+});
 
-console.log(`
-  ${primeiroValor}
-  ${ultimoValor}
-  ${comidas}
-`)
+const li = document.querySelectorAll('li');
+li.forEach(i => i.classList.add('ativa'));
 
-const estudantes = ['Marcio', 'Brenda', 'Joana', 'Kleber', 'Julia'];
+// ----- Array.map ------
+const novaArray = carros.map((item, index, array) => {
+  return item.toLocaleUpperCase();
+});
+console.log(novaArray);
 
-console.log(`
-  Arrume os estudantes em ordem alfabética
-  ${estudantes.sort()}
+const numeros = [2, 4, 5, 6, 78];
+const numerosx2 = numeros.map(n => n * 2);
+console.table(numeros);
+console.table(numerosx2);
 
-  Inverta a ordem dos estudantes
-  ${estudantes.reverse()}
+const aulas = [
+  {
+    nome: 'HTML 1',
+    min: 15
+  },
+  {
+    nome: 'HTML 2',
+    min: 10
+  },
+  {
+    nome: 'CSS 1',
+    min: 20
+  },
+  {
+    nome: 'JS 1',
+    min: 25
+  },
+]
 
-  Verifique se Joana faz parte dos estudantes
-  ${estudantes.includes('Joana')}
+const tempoAulas = aulas.map(aula => aula.min);
+console.log(tempoAulas);
 
-  Verifique se Juliana faz parte dos estudantes
-  ${estudantes.includes('Juliana')}
-`)
+const nomeAulas = aula => aula.nome;
 
-let html = `<section>
-              <div>Sobre</div>
-              <div>Produtos</div>
-              <div>Contato</div>
-            </section>`
-    
-html = html.split('section').join('ul')
-console.log(`
-  Substitua section por ul e div com li,
-  utilizando split e join
-  ${html}
-`)          
+const arrayNomeAulas = aulas.map(nomeAulas);
+console.log(arrayNomeAulas);
 
+// ----- Reduce -----
+const reduceAulas = aulas.reduce((acumulador, item, index, array) => {
+  console.log(acumulador , item, index, array);
+  return acumulador + item.min;
+}, 0)
 
-const carros = ['Ford', 'Fiat', 'VW', 'Honda'];
-// Remova o último carro, mas antes de remover
-// salve a array original em outra variável
-const carrosCopia = carros.slice();
-console.log(carrosCopia);
-
-carros.pop();
-console.log(carros);
+const maiorNumero = numeros.reduce((acumulador, item) => {
+  return acumulador > item ? acumulador : item;
+  // if(acumulador > item)
+  //   return acumulador;
+  // else
+  //   return item;
+},0);
+console.log(maiorNumero);
