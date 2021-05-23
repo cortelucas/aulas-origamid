@@ -12,6 +12,9 @@ const Cursos = cursos.map((curso) => {
 console.log(Cursos);
 // Retorne uma lista com os
 // números maiores que 100
+const numeros = [3, 44, 333, 23, 122, 322, 33];
+const maioresQue100 = numeros.filter(n => n > 100);
+console.log(maioresQue100);
 
 
 // Verifique se Baixo faz parte
