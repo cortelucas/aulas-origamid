@@ -16,10 +16,20 @@ console.log(`
 `)
 
 const estudantes = ['Marcio', 'Brenda', 'Joana', 'Kleber', 'Julia'];
-// Arrume os estudantes em ordem alfabética
-// Inverta a ordem dos estudantes
-// Verifique se Joana faz parte dos estudantes
-// Verifique se Juliana faz parte dos estudantes
+
+console.log(`
+  Arrume os estudantes em ordem alfabética
+  ${estudantes.sort()}
+
+  Inverta a ordem dos estudantes
+  ${estudantes.reverse()}
+
+  Verifique se Joana faz parte dos estudantes
+  ${estudantes.includes('Joana')}
+  
+  Verifique se Juliana faz parte dos estudantes
+  ${estudantes.includes('Juliana')}
+`)
 
 let html = `<section>
               <div>Sobre</div>
