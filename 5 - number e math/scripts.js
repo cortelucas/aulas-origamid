@@ -3,13 +3,10 @@
 console.log(Math.floor(Math.random() * (2000 - 1050 + 1)) + 1050)
 
 // Retorne o maior número da lista abaixo
-let numeros = '4, 5, 20, 8, 9';
-let numerosConvertidos = [];
-numeros = numeros.split(', ')
-numeros.forEach(numero => {
-  numerosConvertidos.push(parseInt(numero))
-});
-console.log(Math.max(numerosConvertidos));
+const numeros = '4, 5, 20, 8, 9';
+const arrayNumeros = numeros.split(', ');
+const numeroMax = Math.max(...arrayNumeros);
+console.log(numeroMax);
 
 
 // Crie uma função para limpar os preços
