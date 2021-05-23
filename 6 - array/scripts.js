@@ -26,7 +26,7 @@ console.log(`
 
   Verifique se Joana faz parte dos estudantes
   ${estudantes.includes('Joana')}
-  
+
   Verifique se Juliana faz parte dos estudantes
   ${estudantes.includes('Juliana')}
 `)
@@ -36,8 +36,14 @@ let html = `<section>
               <div>Produtos</div>
               <div>Contato</div>
             </section>`
-// Substitua section por ul e div com li,
-// utilizando split e join
+    
+html = html.split('section').join('ul')
+console.log(`
+  Substitua section por ul e div com li,
+  utilizando split e join
+  ${html}
+`)          
+
 
 const carros = ['Ford', 'Fiat', 'VW', 'Honda'];
 // Remova o último carro, mas antes de remover
