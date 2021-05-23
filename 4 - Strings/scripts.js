@@ -39,11 +39,13 @@ console.log(arrayTransporter);
 
 
 // Substitua todos os span's por a's
-const html = `<ul>
+let html = `<ul>
                 <li><span>Sobre</span></li>
                 <li><span>Produtos</span></li>
                 <li><span>Contato</span></li>
               </ul>`;
+
+html = html.split('span').join('a');
 
 // Retorne o último caracter da frase
 const frase = 'Melhor do ano!';
