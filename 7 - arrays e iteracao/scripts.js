@@ -102,4 +102,22 @@ const every = frutas.every((item) => {
 console.log(every);
 
 const maiorQue3 = numeros.every(n  => n < 3);
-console.log(maiorQue3)
+console.log(maiorQue3);
+
+// ------ Array.find() e Array.findIndex ------
+const indexUva = frutas.findIndex((item) => {
+  return item === 'Uva';
+});
+console.log(indexUva);
+
+// ------ Array.filter() ------
+const frutas1 = ['Banana', undefined, null, '', 'Uva', 0, 'Maçã'];
+const arrayFrutas = frutas1.filter((item) => {
+  return item;
+});
+console.log(arrayFrutas);
+
+const maiores15 = aulas.filter((aula) => {
+  return aula.min >= 15;
+});
+console.log(maiores15);
