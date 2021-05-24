@@ -1,117 +1,81 @@
-const instrumentos = ['Guitarra', 'Baixo', 'Violão'];
-const precos = [49, 99, 69, 89];
+const perimetro = new Function('lado', 'return lado * 4');
 
-const dados = [new String('Tipo 1'), ['Carro', 'Portas', {cor: 'Azul', preco: 2000}], function andar(nome) { console.log(nome) }];
-
-dados[2]('Ford');
-dados[1][2].cor; // azul
-
-const instrumentos = ['Guitarra', 'Baixo', 'Violão'];
-const carros = new Array('Corola', 'Mustang', 'Honda');
-
-carros[1] // Mustang
-carros[2] = 'Ferrari';
-carros[10] = 'Parati';
-carros.length; // 11
-
-let li = document.querySelectorAll('li'); // NodeList
-Array.isArray(li); // false
-li = Array.from(li); // Array
-Array.isArray(li); // true
-
-const carros = {
-  0: 'Fiat',
-  1: 'Honda',
-  2: 'Ford',
-  length: 4,
+function somar(n1, n2) {
+  return n1 + n2
 }
 
-const carrosArray = Array.from(carros);
+// ----- Function.prototype.call() -----
+// executa função
+function realizarSaudação() {
+  console.log('Saudações!')
+}
 
-Array.of(10); // [10]
-Array.of(1,2,3,4); // [1,2,3,4]
-new Array(5); // [,,,,]
-Array(5); // [,,,,]
-Array(1,2,3,4); // [1,2,3,4]
+realizarSaudação.call();
+
+// const marcaDeCarros = ['Ford', 'Fiat', 'VW'];
+// marcaDeCarros.forEach.call((carros, marca) => {
+//   console.log(marca);
+// });
+
+function Dom(seletor) {
+  this.element = document.querySelector(seletor);
+};
+
+Dom.prototype.ativo = function(classe) {
+  this.element.classList.add(classe);
+}
+const li = document.querySelectorAll('li');
+
+// const ul = new Dom('ul');
 
 
-const frutas = ['Banana', 'Pêra', ['Uva Roxa', 'Uva Verde']];
-frutas.length; // 3
+// ul.ativo('ativar');
 
-frutas[0].length; // 6
-frutas[1].length; // 5
-frutas[2].length; // 2
+// console.log(ul)
 
-instrumentos.sort(); //organiza por ordem alfabética
-instrumentos; // ['Baixo', 'Guitarra', Violão]
+const frutas = ['Uva', 'Maçã', 'Banana'];
+Array.prototype.pop.call(frutas); //retira o ultimo item
+//frutas.pop(); é exatamente igual
 
-const idades = [32,21,33,43,1,12,8]; //não organiza numeros
-idades.sort();
-idades; // [1, 12, 21, 32, 33, 43, 8]
+const arrayLike = {
+  0: 'item 1',
+  1: 'item 2',
+  2: 'item 3',
+  length: 3,
+}
 
-const carros = ['Ford', 'Fiat', 'VW'];
-carros.unshift('Honda', 'Kia'); // 5
-carros; // ['Honda', 'Kia', 'Ford', 'Fiat', 'VW'];
+const filtro = Array.prototype.filter.call(li, (item) => {
+  return item.classList.contains('ativo');
+})
 
-carros.push('Ferrari'); // 6
-carros; // ['Honda', 'Kia', 'Ford', 'Fiat', 'VW', 'Ferrari'];
-const primeiroCarro = carros.shift(); // 'Ford'
-carros; // ['Fiat', 'VW', 'Honda'];
+// ----- Function.prototype.aplly() -----
+const numeros = [33, 232, 33, 434, 54, 5424, 4];
+console.log(Math.max.apply(null, numeros));
+console.log(Math.max.call(null, 33, 232, 33, 434, 54, 5424, 4));
 
-const ultimoCarro = carros.pop(); // 'Honda'
-carros; // ['Fiat', 'VW'];
+// ----- Function.prototype.bind() -----
+//bind deve-se ativar a função
+const filtro2 = Array.prototype.filter.bind(li, (item) => {
+  return item.classList.contains('ativo');
+})
+console.log(filtro2());
 
-carros.reverse(); // ['Honda', 'VW', 'Fiat', 'Ford'];
+const $ = document.querySelectorAll.bind(document);
 
-carros.splice(1, 0, 'Kia', 'Mustang'); // []
-carros; // ['Ford', 'Kia', 'Mustang', 'Fiat', 'VW', 'Honda']
+const carro = {
+  marca: 'Ford',
+  ano: 2018,
+  acelerar: function(aceleracao, tempo) {
+    return `${this.marca} acelerou ${aceleracao} em ${tempo}`;
+  }
+}
+carro.acelerar(100, 20);
 
-carros.splice(3, 2, 'Ferrari'); // ['Fiat', 'VW']
-carros; // ['Ford', 'Kia', 'Mustang', 'Ferrari', 'Honda']
+function imc(altura, peso) {
+  return peso / (altura * altura);
+}
 
-['Item1', 'Item2', 'Item3', 'Item4'].copyWithin(2, 0, 3);
-// ['Item1', 'Item2', 'Item1', 'Item2']
+const imc180 = imc.bind(null, 1.80);
 
-['Item1', 'Item2', 'Item3', 'Item4'].copyWithin(-1);
-// ['Item1', 'Item2', 'Item3', 'Item1']
-
-['Item1', 'Item2', 'Item3', 'Item4'].fill('Banana');
-// ['Banana', 'Banana', 'Banana', 'Banana']
-
-['Item1', 'Item2', 'Item3', 'Item4'].fill('Banana', 2);
-// ['Item1', 'Item2', 'Banana', 'Banana']
-
-['Item1', 'Item2', 'Item3', 'Item4'].fill('Banana', 1, 3);
-// ['Item1', 'Banana', 'Banana', 'Item4']
-
-const transporte1 = ['Barco', 'Aviao'];
-const transporte2 = ['Carro', 'Moto'];
-const transportes = transporte1.concat(transporte2);
-// ['Barco', 'Aviao', 'Carro', 'Moto'];
-
-const maisTransportes = [].concat(transporte1, transporte2, 'Van');
-// ['Barco', 'Aviao', 'Carro', 'Moto', 'Van'];
-
-const linguagens = ['html', 'css', 'js', 'php', 'python', 'js'];
-
-linguagens.includes('css'); // true
-linguagens.includes('ruby'); // false
-linguagens.indexOf('python'); // 4
-linguagens.indexOf('js'); // 2
-linguagens.lastIndexOf('js'); // 5
-
-const linguagens = ['html', 'css', 'js', 'php', 'python'];
-linguagens.join(); // 'html,css,js,php,python'
-linguagens.join(' '); // 'html css js php python'
-linguagens.join('-_-'); // 'html-_-css-_-js-_-php-_-python'
-
-let htmlString = '<h2>Título Principal</h2>'
-htmlString = htmlString.split('h2');
-// ['<', '>Título Principal</', '>']
-htmlString = htmlString.join('h1');
-// <h1>Título Principal</h1>
-
-linguagens.slice(3); // ['php', 'python']
-linguagens.slice(1, 4); // ['css', 'js', 'php']
-
-const cloneLinguagens = linguagens.slice();
+imc(1.80, 70); // 21.6
+imc180(70); // 21.6
