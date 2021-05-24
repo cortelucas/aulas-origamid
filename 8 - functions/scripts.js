@@ -22,3 +22,4 @@ console.log(criarElemento('li', 'azul', 'Este é o conteúdo'))
 // Crie uma nova função utilizando a anterior como base
 // essa nova função deverá sempre criar h1 com a
 // classe titulo. Porém o parâmetro conteudo continuará dinâmico
+const h1Titulo = criarElemento.bind(null, 'h1', 'titulo');
