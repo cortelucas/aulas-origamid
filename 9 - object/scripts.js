@@ -111,3 +111,43 @@ console.log(`
   para verificar a função Object.isExtensible(carro);
   só sera true se eu não ativei a função
 `);
+
+// ----- Aula 03 -----
+const frase = 'Isto é uma String';
+console.log(`
+  {}.constructor retorna a função construtora do objeto
+  frutas.constructor = ${frutas.constructor}
+
+  ----- hasOwnProperty() -----
+  Verifica se possui a propriedade e retorna true. A propriedade deve ser direta do objeto e não do protótipo
+  frutas.hasOwnProperty('map') = ${frutas.hasOwnProperty('map')}
+
+  Array.hasOwnProperty('map') = ${Array.hasOwnProperty('map')}
+
+  Array.prototype.hasOwnProperty('map') = ${Array.prototype.hasOwnProperty('map')}
+
+  ----- {}.propertyIsEnumerable() -----
+  verifica se a propriedade é enumerável.
+  Array.prototype.propertyIsEnumerable('map') = ${Array.prototype.propertyIsEnumerable('map')}
+
+  window.propertyIsEnumerable('innerHeight') = ${window.propertyIsEnumerable('innerHeight')}
+
+  ----- isPrototypeOf() -----
+  Verifica se é o protótipo do valor passado.
+  Array.prototype.isPrototypeOf(frutas) = ${Array.prototype.isPrototypeOf(frutas)}
+
+  ----- toString() -----
+  Retorna o tipo do objeto. O problema é toString() ser uma função dos protótipos de Array, String e mais. Por isso é comum utilizarmos a função direto do Object.prototype.toString.call(valor).
+  
+  frutas.toString() = ${frutas.toString()}
+  ${typeof frutas}
+  ${Object.prototype.toString.call(frutas)}
+
+  frase.toString() = ${frase.toString()}
+  ${typeof frase}
+  ${Object.prototype.toString.call(frase)}
+
+  Carro.toString() = ${Carro.toString()}
+  ${typeof Carro}
+  ${Object.prototype.toString.call(Carro)}
+`);
