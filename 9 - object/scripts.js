@@ -23,6 +23,7 @@ const configuracao = {
   height: 600,
   background: '#333'
 }
+Object.freeze(configuracao);
 
 // Liste o nome de todas
 // as propriedades do
