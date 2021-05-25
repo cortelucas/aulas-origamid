@@ -14,7 +14,8 @@ Object.defineProperties(quadrado, {
     value: 4,
     enumerable: true
   }
-})
+});
+
 // Previna qualquer mudança
 // no objeto abaixo
 const configuracao = {
