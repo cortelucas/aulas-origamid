@@ -8,7 +8,13 @@ console.log(verficarDado({})); //[object Object]
 // Crie um objeto quadrado com
 // a propriedade lados e torne
 // ela imutável
-
+const quadrado = {}
+Object.defineProperties(quadrado, {
+  lados:{
+    value: 4,
+    enumerable: true
+  }
+})
 // Previna qualquer mudança
 // no objeto abaixo
 const configuracao = {
