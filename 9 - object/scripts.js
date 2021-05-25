@@ -28,3 +28,8 @@ Object.freeze(configuracao);
 // Liste o nome de todas
 // as propriedades do
 // protótipo de String e Array
+console.log('---- String -----')
+console.table(Object.getOwnPropertyNames(String.prototype));
+
+console.log('---- Array -----')
+console.table(Object.getOwnPropertyNames(Array.prototype));
