@@ -1,3 +1,4 @@
+// ----- Aula 01 -----
 const Pessoa = new Object({
   nome: 'Lucas',
 });
@@ -54,3 +55,59 @@ Object.defineProperties(moto, {
     },
   }
 });
+
+// ----- Aula 02 -----
+const frutas = ['Banana', 'Pêra'];
+
+console.log(`
+  ----- getOwnPropertyDescriptors -----
+  Lista com métodos e propriedades e Array
+  Object.getOwnPropertyDescriptors(Array) = ${Object.getOwnPropertyDescriptors(Array)}
+
+  Lista com métodos e propriedades do protótipo de Array
+  Object.getOwnPropertyDescriptors(Array.prototype = ${Object.getOwnPropertyDescriptors(JSON.toString(Array.prototype))}
+
+  Puxa de uma única propriedade
+  Object.getOwnPropertyDescriptor(window, 'innerHeight') = ${Object.getOwnPropertyDescriptor(window, 'innerHeight')}
+
+  -----  keys() -----
+  retorna uma array com as chaves de todas as propriedades diretas e enumeráveis do objeto
+  Object.keys(Carro) = ${Object.keys(Carro)}
+
+  ----- values() -----
+  retorna uma array com os valores do objeto
+  Object.values(Carro) = ${Object.values(Carro)}
+
+  ----- entries() -----
+  retorna uma array com array's contendo a chave e o valor.
+  Object.entries(Carro) = ${Object.entries(Carro)}
+
+  ----- getOwnPropertyNames() -----
+  Retorna uma array com todas as propriedades diretas do objeto (não retorna as do protótipo).
+  Object.getOwnPropertyNames(Array) = ${Object.getOwnPropertyNames(Array)}
+
+  Object.getOwnPropertyNames(Array.prototype) = ${Object.getOwnPropertyNames(Array.prototype)}
+
+  Object.getOwnPropertyNames(carro) = ${Object.getOwnPropertyNames(Carro)}
+
+  ----- getPrototypeOf() -----
+  getOwnPropertyNames
+  Object.getPrototypeOf('') = ${Object.getPrototypeOf('')}
+  Object.getPrototypeOf(frutas) = ${Object.getPrototypeOf(frutas)}
+
+  ----- Object.freeze() -----
+  impede qualquer mudança nas propriedades
+  Object.freeze(carro)
+  para verificar a função Object.isFrozen(carro);
+
+  ----- Object.seal() -----
+  previne a adição de novas propriedades e impede que as atuais sejam deletadas
+  Object.seal(carro)
+  para verificar a função Object.isSealed(carro);
+
+  ----- Object.preventExtensions() -----
+  previne a adição de novas propriedades.
+  Object.preventExtensions(carro)
+  para verificar a função Object.isExtensible(carro);
+  só sera true se eu não ativei a função
+`);
