@@ -1,117 +1,153 @@
-const instrumentos = ['Guitarra', 'Baixo', 'Violão'];
-const precos = [49, 99, 69, 89];
+// ----- Aula 01 -----
+const Pessoa = new Object({
+  nome: 'Lucas',
+});
+console.log(Pessoa.nome);
 
-const dados = [new String('Tipo 1'), ['Carro', 'Portas', {cor: 'Azul', preco: 2000}], function andar(nome) { console.log(nome) }];
-
-dados[2]('Ford');
-dados[1][2].cor; // azul
-
-const instrumentos = ['Guitarra', 'Baixo', 'Violão'];
-const carros = new Array('Corola', 'Mustang', 'Honda');
-
-carros[1] // Mustang
-carros[2] = 'Ferrari';
-carros[10] = 'Parati';
-carros.length; // 11
-
-let li = document.querySelectorAll('li'); // NodeList
-Array.isArray(li); // false
-li = Array.from(li); // Array
-Array.isArray(li); // true
-
-const carros = {
-  0: 'Fiat',
-  1: 'Honda',
-  2: 'Ford',
-  length: 4,
+const Carro = {
+  marca: 'Marca',
+  rodas: 4,
+  init(marca) {
+    this.marca = marca;
+    return this;
+  },
+  acelerar() {
+    return this.marca + ' acelerou';
+  },
+  buzinar() {
+    return this.marca + ' buzinou';
+  }
 }
 
-const carrosArray = Array.from(carros);
+const Honda = Object.create(Carro).init('Honda');
+console.log(Honda.acelerar());
 
-Array.of(10); // [10]
-Array.of(1,2,3,4); // [1,2,3,4]
-new Array(5); // [,,,,]
-Array(5); // [,,,,]
-Array(1,2,3,4); // [1,2,3,4]
+const Ferrari = Object.create(Carro).init('Ferrari');
+console.log(Ferrari.buzinar());
 
+const funcaoAutomovel = {
+  acelerar(){
+    return 'acelerou';
+  },
+  buzinar() {
+    return 'buzinou';
+  }
+}
 
-const frutas = ['Banana', 'Pêra', ['Uva Roxa', 'Uva Verde']];
-frutas.length; // 3
+const moto = {
+  rodas: 2,
+  capacete: true,
+}
 
-frutas[0].length; // 6
-frutas[1].length; // 5
-frutas[2].length; // 2
+// ----- Object.assign -----
+Object.assign(moto, funcaoAutomovel);
+console.log(moto)
 
-instrumentos.sort(); //organiza por ordem alfabética
-instrumentos; // ['Baixo', 'Guitarra', Violão]
+// ----- Object.defineProperties -----
+const moto2 = {};
+Object.defineProperties(moto, {
+  rodas: {
+    get(){
+      return this._rodas;
+    },
+    set(valor){
+      this._rodas = valor * 4;
+    },
+  }
+});
 
-const idades = [32,21,33,43,1,12,8]; //não organiza numeros
-idades.sort();
-idades; // [1, 12, 21, 32, 33, 43, 8]
+// ----- Aula 02 -----
+const frutas = ['Banana', 'Pêra'];
 
-const carros = ['Ford', 'Fiat', 'VW'];
-carros.unshift('Honda', 'Kia'); // 5
-carros; // ['Honda', 'Kia', 'Ford', 'Fiat', 'VW'];
+console.log(`
+  ----- getOwnPropertyDescriptors -----
+  Lista com métodos e propriedades e Array
+  Object.getOwnPropertyDescriptors(Array) = ${Object.getOwnPropertyDescriptors(Array)}
 
-carros.push('Ferrari'); // 6
-carros; // ['Honda', 'Kia', 'Ford', 'Fiat', 'VW', 'Ferrari'];
-const primeiroCarro = carros.shift(); // 'Ford'
-carros; // ['Fiat', 'VW', 'Honda'];
+  Lista com métodos e propriedades do protótipo de Array
+  Object.getOwnPropertyDescriptors(Array.prototype = ${Object.getOwnPropertyDescriptors(JSON.toString(Array.prototype))}
 
-const ultimoCarro = carros.pop(); // 'Honda'
-carros; // ['Fiat', 'VW'];
+  Puxa de uma única propriedade
+  Object.getOwnPropertyDescriptor(window, 'innerHeight') = ${Object.getOwnPropertyDescriptor(window, 'innerHeight')}
 
-carros.reverse(); // ['Honda', 'VW', 'Fiat', 'Ford'];
+  -----  keys() -----
+  retorna uma array com as chaves de todas as propriedades diretas e enumeráveis do objeto
+  Object.keys(Carro) = ${Object.keys(Carro)}
 
-carros.splice(1, 0, 'Kia', 'Mustang'); // []
-carros; // ['Ford', 'Kia', 'Mustang', 'Fiat', 'VW', 'Honda']
+  ----- values() -----
+  retorna uma array com os valores do objeto
+  Object.values(Carro) = ${Object.values(Carro)}
 
-carros.splice(3, 2, 'Ferrari'); // ['Fiat', 'VW']
-carros; // ['Ford', 'Kia', 'Mustang', 'Ferrari', 'Honda']
+  ----- entries() -----
+  retorna uma array com array's contendo a chave e o valor.
+  Object.entries(Carro) = ${Object.entries(Carro)}
 
-['Item1', 'Item2', 'Item3', 'Item4'].copyWithin(2, 0, 3);
-// ['Item1', 'Item2', 'Item1', 'Item2']
+  ----- getOwnPropertyNames() -----
+  Retorna uma array com todas as propriedades diretas do objeto (não retorna as do protótipo).
+  Object.getOwnPropertyNames(Array) = ${Object.getOwnPropertyNames(Array)}
 
-['Item1', 'Item2', 'Item3', 'Item4'].copyWithin(-1);
-// ['Item1', 'Item2', 'Item3', 'Item1']
+  Object.getOwnPropertyNames(Array.prototype) = ${Object.getOwnPropertyNames(Array.prototype)}
 
-['Item1', 'Item2', 'Item3', 'Item4'].fill('Banana');
-// ['Banana', 'Banana', 'Banana', 'Banana']
+  Object.getOwnPropertyNames(carro) = ${Object.getOwnPropertyNames(Carro)}
 
-['Item1', 'Item2', 'Item3', 'Item4'].fill('Banana', 2);
-// ['Item1', 'Item2', 'Banana', 'Banana']
+  ----- getPrototypeOf() -----
+  getOwnPropertyNames
+  Object.getPrototypeOf('') = ${Object.getPrototypeOf('')}
+  Object.getPrototypeOf(frutas) = ${Object.getPrototypeOf(frutas)}
 
-['Item1', 'Item2', 'Item3', 'Item4'].fill('Banana', 1, 3);
-// ['Item1', 'Banana', 'Banana', 'Item4']
+  ----- Object.freeze() -----
+  impede qualquer mudança nas propriedades
+  Object.freeze(carro)
+  para verificar a função Object.isFrozen(carro);
 
-const transporte1 = ['Barco', 'Aviao'];
-const transporte2 = ['Carro', 'Moto'];
-const transportes = transporte1.concat(transporte2);
-// ['Barco', 'Aviao', 'Carro', 'Moto'];
+  ----- Object.seal() -----
+  previne a adição de novas propriedades e impede que as atuais sejam deletadas
+  Object.seal(carro)
+  para verificar a função Object.isSealed(carro);
 
-const maisTransportes = [].concat(transporte1, transporte2, 'Van');
-// ['Barco', 'Aviao', 'Carro', 'Moto', 'Van'];
+  ----- Object.preventExtensions() -----
+  previne a adição de novas propriedades.
+  Object.preventExtensions(carro)
+  para verificar a função Object.isExtensible(carro);
+  só sera true se eu não ativei a função
+`);
 
-const linguagens = ['html', 'css', 'js', 'php', 'python', 'js'];
+// ----- Aula 03 -----
+const frase = 'Isto é uma String';
+console.log(`
+  {}.constructor retorna a função construtora do objeto
+  frutas.constructor = ${frutas.constructor}
 
-linguagens.includes('css'); // true
-linguagens.includes('ruby'); // false
-linguagens.indexOf('python'); // 4
-linguagens.indexOf('js'); // 2
-linguagens.lastIndexOf('js'); // 5
+  ----- hasOwnProperty() -----
+  Verifica se possui a propriedade e retorna true. A propriedade deve ser direta do objeto e não do protótipo
+  frutas.hasOwnProperty('map') = ${frutas.hasOwnProperty('map')}
 
-const linguagens = ['html', 'css', 'js', 'php', 'python'];
-linguagens.join(); // 'html,css,js,php,python'
-linguagens.join(' '); // 'html css js php python'
-linguagens.join('-_-'); // 'html-_-css-_-js-_-php-_-python'
+  Array.hasOwnProperty('map') = ${Array.hasOwnProperty('map')}
 
-let htmlString = '<h2>Título Principal</h2>'
-htmlString = htmlString.split('h2');
-// ['<', '>Título Principal</', '>']
-htmlString = htmlString.join('h1');
-// <h1>Título Principal</h1>
+  Array.prototype.hasOwnProperty('map') = ${Array.prototype.hasOwnProperty('map')}
 
-linguagens.slice(3); // ['php', 'python']
-linguagens.slice(1, 4); // ['css', 'js', 'php']
+  ----- {}.propertyIsEnumerable() -----
+  verifica se a propriedade é enumerável.
+  Array.prototype.propertyIsEnumerable('map') = ${Array.prototype.propertyIsEnumerable('map')}
 
-const cloneLinguagens = linguagens.slice();
+  window.propertyIsEnumerable('innerHeight') = ${window.propertyIsEnumerable('innerHeight')}
+
+  ----- isPrototypeOf() -----
+  Verifica se é o protótipo do valor passado.
+  Array.prototype.isPrototypeOf(frutas) = ${Array.prototype.isPrototypeOf(frutas)}
+
+  ----- toString() -----
+  Retorna o tipo do objeto. O problema é toString() ser uma função dos protótipos de Array, String e mais. Por isso é comum utilizarmos a função direto do Object.prototype.toString.call(valor).
+  
+  frutas.toString() = ${frutas.toString()}
+  ${typeof frutas}
+  ${Object.prototype.toString.call(frutas)}
+
+  frase.toString() = ${frase.toString()}
+  ${typeof frase}
+  ${Object.prototype.toString.call(frase)}
+
+  Carro.toString() = ${Carro.toString()}
+  ${typeof Carro}
+  ${Object.prototype.toString.call(Carro)}
+`);
